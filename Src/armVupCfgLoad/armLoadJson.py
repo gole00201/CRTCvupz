@@ -2,7 +2,7 @@ import json
 from Src.armVupLogic.VupzLogic import TP, VupzObjectClass, TpWayClass
 
 
-class LoadJson:
+class ParsejsonCreateTp:
     def __init__(self, json_path):
         with open(json_path, 'r') as f:
             json_data = json.load(f)
@@ -27,5 +27,5 @@ class LoadJson:
                 vupz_cnt += 1
             self.tp.ways.append(way)
 
-    def create_tp(self):
+    def create_tp_from_json(self):
         return self.tp
