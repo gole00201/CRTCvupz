@@ -1,8 +1,9 @@
 import json
 from Src.armVupLogic.VupzLogic import TP, VupzObjectClass, TpWayClass
+from Src.armVupExeptions.CustomExept import LoadCfgException
 
 
-class ParsejsonCreateTp:
+class ParseJson:
     def __init__(self, json_path):
         with open(json_path, 'r') as f:
             json_data = json.load(f)
@@ -22,7 +23,7 @@ class ParsejsonCreateTp:
             way.vupz_cnt = int(vupz_per_way)
             for _ in range(int(vupz_per_way)):
                 if vupz_cnt > len(list_of_all_vupz) - 1:
-                    raise NotImplementedError("Тут нужно сделать exeption")
+                    raise LoadCfgException('Некорректный конфиг')
                 way.vupz_obj.append(list_of_all_vupz[vupz_cnt])
                 vupz_cnt += 1
             self.tp.ways.append(way)
