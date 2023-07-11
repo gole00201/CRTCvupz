@@ -1,6 +1,6 @@
 import json
-from Src.armVupLogic.VupzLogic import TP, VupzObjectClass, TpWayClass
-from Src.armVupExeptions.CustomExept import LoadCfgException
+from Source.armVupLogic.VupzLogic import TP, VupzObjectClass, TpWayClass
+from Source.armVupExeptions.configurateException import LoadCfgException
 
 
 class ParseJson:

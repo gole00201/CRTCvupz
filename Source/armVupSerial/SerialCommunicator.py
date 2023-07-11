@@ -1,5 +1,5 @@
 from Source.armVupSerial.StringParser import StringParser
-import Source.armVupExeptions.serialExeptions as ex
+import Source.armVupExeptions.serialExceptions as ex
 import serial
 import time
 import serial.tools.list_ports as list_ports
