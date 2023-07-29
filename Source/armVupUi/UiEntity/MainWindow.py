@@ -1,6 +1,7 @@
 import tkinter as tk
-from Src.armVupLogic.VupzLogic import TP
-from Src.armVupUi.UiEntity.VupzWidget import ArmVupzWidget
+from Source.armVupLogic.VupzLogic import TP
+from Source.armVupUi.UiEntity.VupzWidget import ArmVupzWidget
+from Source.armVupUi.UiEntity.PostEcWidget import PostWiget
 
 
 class ArmMainwindow(tk.Tk):
@@ -15,6 +16,10 @@ class ArmMainwindow(tk.Tk):
         self.vupz_wigets = []
         y_coord = self.tp_start_pos[0]
         x_coord = self.tp_start_pos[1]
+        self.post_ec = PostWiget(self)
+        post = self.tp.post_ec
+        self.post_ec.place(x=post.relx * 1980,
+                           y=post.rely * 1024)
         for way in self.tp.ways:
             for vupz in way.vupz_obj:
                 vupz_window = ArmVupzWidget(self, vupz)

@@ -1,3 +1,6 @@
+from Source.armVupExeptions.configurateException import LoadCfgException
+
+
 class VupzObjectClass:
     def __init__(self, id, name):
         self.name = name
@@ -40,3 +43,16 @@ class TP:
     def __init__(self):
         self.ways_cnt = None
         self.ways: list[TpWayClass] = []
+        self.post_ec: PostEc = None
+
+
+class PostEc:
+    def __init__(self, post_ec_data):
+        if post_ec_data == 'ЮГ':
+            self.relx = 0.45
+            self.rely = 0.85
+        elif post_ec_data == 'СЕВЕР':
+            self.relx = 0.45
+            self.rely = 0.05
+        else:
+            raise LoadCfgException('Некоректное расположение поста')

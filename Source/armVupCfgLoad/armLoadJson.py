@@ -1,5 +1,6 @@
 import json
-from Source.armVupLogic.VupzLogic import TP, VupzObjectClass, TpWayClass
+from Source.armVupLogic.VupzLogic import TP, VupzObjectClass, TpWayClass, \
+     PostEc
 from Source.armVupExeptions.configurateException import LoadCfgException
 
 
@@ -7,9 +8,11 @@ class ParseJson:
     def __init__(self, json_path):
         with open(json_path, 'r') as f:
             json_data = json.load(f)
+        self.tp = TP()
         stp_names = json_data['stp_names']
         stp_config = json_data['stp_config']
-        self.tp = TP()
+        post_ec_data = json_data['post_ec']
+        self.tp.post_ec = PostEc(post_ec_data)
         list_of_all_vupz: list[VupzObjectClass] = []
 
         for id, name in stp_names.items():
