@@ -10,6 +10,7 @@ class ArmMainwindow(tk.Tk):
         self.tp = tp
         self.title('Main Window')
         self.geometry("1980x1024")
+        self.inf_window = None
         self.tp_start_pos = (200, 500)
 
     def create_context(self):
@@ -28,3 +29,8 @@ class ArmMainwindow(tk.Tk):
                 self.vupz_wigets.append(vupz_window)
             x_coord = self.tp_start_pos[1]
             y_coord += vupz_window.w_size[1]
+
+    def delete_thirst_inf_subwindow(self):
+        if not self.inf_window:
+            self.inf_window.destroy()
+            self.inf_window = None
